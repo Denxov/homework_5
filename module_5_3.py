@@ -20,21 +20,23 @@ class House:
     def __eq__(self, other):
         if isinstance(other,type(self)):
          return self.number_of_floors==other.number_of_floors
+        elif isinstance(other,int):
+            return
     def __lt__(self,other):
-        if isinstance(other, type(self)):
-            return self.number_of_floors < other.number_of_floors
+        if isinstance(other, type(self)|int):
+            return self.number_of_floors < other
     def __le__(self,other):
-        if isinstance(other, type(self)):
-            return self.number_of_floors <= other.number_of_floors
+        if isinstance(other, type(self)|int):
+            return self.number_of_floors <= other
     def __gt__(self,other):
-        if isinstance(other, type(self)):
-            return self.number_of_floors > other.number_of_floors
+        if isinstance(other, type(self)|int):
+            return self.number_of_floors > other
     def __ge__(self,other):
-        if isinstance(other, type(self)):
-            return self.number_of_floors >= other.number_of_floors
+        if isinstance(other, type(self)|int):
+            return self.number_of_floors >= other
     def __ne__(self,other):
-        if isinstance(other, type(self)):
-         return self.number_of_floors != other.number_of_floors
+        if isinstance(other, type(self)|int):
+         return self.number_of_floors != other
 
     def __add__(self,value):
         self.number_of_floors+=value
@@ -70,3 +72,5 @@ print(h1 >= h2) # __ge__
 print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
 print(h1 != h2) # __ne__
+
+#print(h1 > 10)
