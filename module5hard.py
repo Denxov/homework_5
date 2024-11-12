@@ -20,10 +20,9 @@ class UrTube:
         self.videos=[]
         self.current_user=None
     def log_in(self,nickname,password):
-        if not self.users.get(nickname):
-              self.users[nickname]=User(nickname,hash(password),age)
-              #.password==hash(password))
-             #self.current_user=self.users[nickname]
+        if nickname in self.users:
+            if self.users[nickname].password==hash(password):
+                self.current_user=self.users[nickname]
         else:
             print(nickname,'- Не найден')
             return False
@@ -32,9 +31,7 @@ class UrTube:
 
     def register(self,nickname,password,age):
         if not nickname in self.users:
-            #new_user=self.users[nickname](nickname,hash(password),age)
-            self.users[nickname].password=hash(password)
-            self.users[nickname].age=age
+            self.users[nickname]=User(nickname,hash(password),age)
 
     def add(self,*videos:Video):
         for i in range(0,len(videos)):
