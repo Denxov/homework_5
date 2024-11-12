@@ -1,4 +1,3 @@
-from collections import UserDict
 from time import sleep
 from types import NoneType
 
@@ -18,6 +17,7 @@ class Video:
         self.duration=duration
         self.time_now=0
         self.adult_mode=adult_mode
+
 class UrTube:
     def __init__(self):
         self.users={} #??
