@@ -18,7 +18,9 @@ class House:
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
 
     def __new__(cls,*args,**kwargs):
-        cls.houses_history.append(args)
+        if args[0] in cls.houses_history:
+            print(f'Название <{args[0]}> уже присутствует в истории')
+        cls.houses_history.append(args[0])
         return super().__new__(cls)
 
     def __del__(self):
