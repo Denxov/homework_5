@@ -20,7 +20,7 @@ class House:
     def __new__(cls,*args,**kwargs):
         if args[0] in cls.houses_history:
             print(f'Название <{args[0]}> уже присутствует в истории')
-        cls.houses_history.append(args[0])
+        else: cls.houses_history.append(args[0])
         return super().__new__(cls)
 
     def __del__(self):
